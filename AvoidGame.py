@@ -3,7 +3,7 @@ import random
 
 pygame.init()
 
-pygame.display.set_caption("재수강 피하") # 게임이름
+pygame.display.set_caption("재수강 피하기") # 게임이름
 
 screen_width = 480  # 가로크기
 screen_height = 640 # 세로크기
@@ -11,7 +11,7 @@ screen_height = 640 # 세로크기
 screen = pygame.display.set_mode((screen_width,screen_height))
 
 background = pygame.image.load("images/bg4.png")
-character = pygame.image.load("images/student.png"")  
+character = pygame.image.load("images/student.png")
 character_size = character.get_rect().size  # 이미지의 크기를 구해옴
 character_width = character_size[0]  # 캐릭터의 가로크기
 character_height = character_size[1]   # 캐릭터의 세로크기
@@ -20,6 +20,7 @@ character_y_pos = screen_height - character_height # 화면 세로크기 가장 
 
 to_x = 0
 character_speed = 0.6
+sss = 1000
 
 enemy = pygame.image.load("images/fail.png")  
 enemy_size = enemy.get_rect().size  # 이미지의 크기를 구해옴
@@ -34,7 +35,8 @@ start_ticks = pygame.time.get_ticks() # 현재 tick 을 받아옴
 
 clock = pygame.time.Clock()  # 프레임
 
-running = True 
+running = True
+
 while running:
     dt = clock.tick(30)
     enemy_y_pos+=10
@@ -55,7 +57,6 @@ while running:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                 to_x = 0 
 
-
     character_x_pos += to_x * dt
 
     # 가로 경계값 처리
@@ -72,21 +73,20 @@ while running:
     enemy_rect.left = enemy_x_pos
     enemy_rect.top = enemy_y_pos
 
-
     if character_rect.colliderect(enemy_rect):
-        print("충돌 했어요! ")
-        running = False
-
-
-
+        background = pygame.image.load("images/bg5.png")  
+        character_speed = 0
+        enemy_y_pos = -100000
+        print("점수는 " + str(int(elapsed_time)) + "점 입니다.")
+        
     screen.blit(background,(0,0))
     screen.blit(character,(character_x_pos,character_y_pos))
     screen.blit(enemy,(enemy_x_pos,enemy_y_pos))
 
-    elapsed_time = (pygame.time.get_ticks()-start_ticks) / 1000 #초로 환산하기 위해 1000으로 나눈다
-    timer = game_font.render(str(int(elapsed_time)), True, (255,255,255)) 
-    screen.blit(timer,(220,300))
+    elapsed_time = (pygame.time.get_ticks()-start_ticks) / sss #초로 환산하기 위해 1000으로 나눈다
 
+    timer = game_font.render(str(int(elapsed_time)), True, (0,0,0))
+    screen.blit(timer,(220,300))
+    
     pygame.display.update()
 
-pygame.quit()
