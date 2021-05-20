@@ -26,6 +26,20 @@ def soundstart():
     mySound.play(-1)
     Sob['text'] = "노래 끄기"
     Sob['command'] = soundstop
+
+def gamehelp():
+    newwindow5 = Toplevel()
+    newwindow5.geometry('500x630')
+    newwindow5.resizable(width=False, height=False)
+    newwindow5.title("게임 설정")
+ 
+    photo3 = PhotoImage(file = "images/bg3.png")
+    
+    labels = Label(newwindow5, image = photo3)
+    labels.pack()
+
+    newwindow5.mainloop()
+    
     
 Sb = Button(window, text = "게임 시작", fg = "white", bg = "black", width =10, height=2)
 Sb.pack()
@@ -35,7 +49,7 @@ Sb2 = Button(window, text = "게임 시작", fg = "white", bg = "black", width =
 Sb2.pack()
 Sb2.place(x=340,y=150)
 
-Hb = Button(window, text = "게임 설정", fg = "white", bg = "green", width =10, height=2)
+Hb = Button(window, text = "게임 설정", fg = "white", bg = "green", command = gamehelp, width =10, height=2)
 Hb.pack()
 Hb.place(x=340,y=210)
 
