@@ -12,6 +12,10 @@ window.resizable(width=False, height=False)
 photo = PhotoImage(file = "images/bg.png")
 bglabel = Label(window, image = photo)
 bglabel.pack()
+
+def windowquit():
+    mySound.stop()
+    window.destroy()
     
 Sb = Button(window, text = "게임 시작", fg = "white", bg = "black", width =10, height=2)
 Sb.pack()
@@ -25,7 +29,7 @@ Hb = Button(window, text = "게임 설정", fg = "white", bg = "green", width =1
 Hb.pack()
 Hb.place(x=340,y=210)
 
-Eb = Button(window, text = "게임 나가기" ,fg = "white", bg = "red", width =10, height=2)
+Eb = Button(window, text = "게임 나가기" ,fg = "white", bg = "red", command = windowquit, width =10, height=2)
 Eb.pack()
 Eb.place(x=340,y=270)
 
