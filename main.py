@@ -28,6 +28,19 @@ def soundstart():
     Sob['command'] = soundstop
 
 def gamehelp():
+    def producer():
+        newwindow3 = Toplevel()
+        newwindow3.geometry('250x70')
+        newwindow3.title("제작자")
+
+        newwindow3.protocol('WM_DELETE_WINDOW', newwindow3)
+        bg3label = Label(newwindow3, text = "대구대학교 정보통신대학\n컴퓨터정보공학부 컴퓨터공학전공\n 21727594 김수빈\n 21727756 김동현", bg="Linen");
+        bg3label.pack()
+
+        Bb3 = Button(newwindow3, text = "←", command = newwindow3.destroy, bg = "yellow")
+        Bb3.pack()
+        Bb3.place(x=0,y=0)
+        
     newwindow5 = Toplevel()
     newwindow5.geometry('500x630')
     newwindow5.resizable(width=False, height=False)
@@ -37,6 +50,10 @@ def gamehelp():
     
     labels = Label(newwindow5, image = photo3)
     labels.pack()
+
+    Pdb = Button(newwindow5, text = "제작자\n정보", command = producer, bg = "Steel Blue", font = ("Arial",9,"bold"))
+    Pdb.pack()
+    Pdb.place(x=185,y=180)
 
     newwindow5.mainloop()
     
