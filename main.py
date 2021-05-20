@@ -31,4 +31,8 @@ Eb.place(x=340,y=270)
 
 window.protocol('WM_DELETE_WINDOW', window)
 
+mySound = pygame.mixer.Sound('music/basic.mp3')
+mySound.set_volume(0.1)
+mySound.play(-1)
+
 window.mainloop()
