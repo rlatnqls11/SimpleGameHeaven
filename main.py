@@ -2,10 +2,16 @@ import pygame
 import os
 from tkinter import *
 
+pygame.init()
+
 window = Tk()
 window.title("심플 게임천국(Simple GameHeaven)")
 window.geometry('710x400')
 window.resizable(width=False, height=False)
+
+photo = PhotoImage(file = "images/bg.png")
+bglabel = Label(window, image = photo)
+bglabel.pack()
     
 Sb = Button(window, text = "게임 시작", fg = "white", bg = "black", width =10, height=2)
 Sb.pack()
