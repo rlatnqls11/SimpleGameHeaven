@@ -15,6 +15,32 @@ bglabel.pack()
 
 v_size = 0.1
 
+def maingame():
+    photo2 = PhotoImage(file = "images/bg2.png")
+
+    newwindow2 = Toplevel()
+    newwindow2.geometry('710x400')
+    newwindow2.resizable(width=False, height=False)
+    newwindow2.title("-1인용 게임-")
+
+    bg2label = Label(newwindow2, image = photo2);
+    bg2label.pack()
+
+    Bb = Button(newwindow2, text = "←", command = newwindow2.destroy, bg = "yellow")
+    Bb.pack()
+    Bb.place(x=0,y=0)
+
+    Gb1 = Button(newwindow2, text = "퀴즈 맞추기", bg = "blue", fg = "white", width =10, height=10)
+    Gb1.pack()
+    Gb1.place(x=200,y=200)
+
+    Gb2 = Button(newwindow2, text = "재수강 피하기", bg = "blue", fg = "white", width =10, height=10)
+    Gb2.pack()
+    Gb2.place(x=400,y=200)
+
+    newwindow2.protocol('WM_DELETE_WINDOW', newwindow2)
+    newwindow2.mainloop()
+    
 def windowquit():
     mySound.stop()
     window.destroy()
@@ -157,7 +183,7 @@ def maingame2():
 def error():
     Sb2.destroy()
         
-Sb = Button(window, text = "게임 시작", fg = "white", bg = "black", width =10, height=2)
+Sb = Button(window, text = "게임 시작", fg = "white", command = maingame, bg = "black", width =10, height=2)
 Sb.pack()
 Sb.place(x=340,y=150)
 
