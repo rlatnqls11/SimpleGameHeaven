@@ -72,6 +72,32 @@ CC BY-SA 4.0 | https://creativecommons.org/licenses/by-sa/4.0/
         mySound.play(-1)
         Sb['text'] = "노래 끄기"
         Sb['command'] = soundstop
+
+    def nickname():
+        newwindow4 = Toplevel()
+        newwindow4.geometry('300x120')
+        newwindow4.resizable(width=False, height=False)
+        newwindow4.title("닉네임")
+        newwindow4.configure(bg='Rosy Brown')
+
+        e = Entry(newwindow4, width=30, borderwidth=10, fg="red", bg="yellow")
+        e.pack()
+        e.insert(0, "닉네임을 적어주세요")
+
+        def click():
+            hello = "당신의 닉네임 : " + str(e.get())[0:]
+            label8 = Label(newwindow4, text=hello)
+            label8.pack()
+
+        Bb2 = Button(newwindow4, text = "←", command = newwindow4.destroy, bg = "yellow")
+        Bb2.pack()
+        Bb2.place(x=0,y=0)
+
+        buttonz = Button(newwindow4, text="확인", command = lambda:[click(),error()])
+        buttonz.pack()
+
+        newwindow4.protocol('WM_DELETE_WINDOW', newwindow4)
+        newwindow4.mainloop()
         
     newwindow5 = Toplevel()
     newwindow5.geometry('500x630')
@@ -99,6 +125,10 @@ CC BY-SA 4.0 | https://creativecommons.org/licenses/by-sa/4.0/
     Vdb.pack()
     Vdb.place(x=175,y=128)
 
+    Nb = Button(newwindow5, text = "닉네임\n설정", command = nickname, bg = "Light Cyan", font = ("Arial",9,"bold"))
+    Nb.pack()
+    Nb.place(x=185,y=255)
+
     Eb = Button(newwindow5, text = "노래 출처", command = Mcopyright ,fg = "black", bg = "papaya Whip", font = ("Arial",9,"bold"))
     Eb.pack()
     Eb.place(x=260,y=38)
@@ -109,12 +139,29 @@ CC BY-SA 4.0 | https://creativecommons.org/licenses/by-sa/4.0/
 
     newwindow5.protocol('WM_DELETE_WINDOW', newwindow5)
     newwindow5.mainloop()
-    
+def maingame2():
+        newwindow7 = Toplevel()
+        newwindow7.geometry('215x20')
+        newwindow7.resizable(width=False, height=False)
+        newwindow7.title("에러")
+        
+        Bb4 = Button(newwindow7, text = "←", command = newwindow7.destroy, bg = "yellow")
+        Bb4.pack()
+        Bb4.place(x=0,y=0)
+        
+        bg6label = Label(newwindow7, text = "게임 설정에서 닉네임을 설정해 주세요!", bg="Light Slate Gray",fg = "white");
+        bg6label.pack()
+
+        newwindow7.mainloop()
+
+def error():
+    Sb2.destroy()
+        
 Sb = Button(window, text = "게임 시작", fg = "white", bg = "black", width =10, height=2)
 Sb.pack()
 Sb.place(x=340,y=150)
 
-Sb2 = Button(window, text = "게임 시작", fg = "white", bg = "black", width =10, height=2)
+Sb2 = Button(window, text = "게임 시작", fg = "white", command = maingame2, bg = "black", width =10, height=2)
 Sb2.pack()
 Sb2.place(x=340,y=150)
 
