@@ -13,6 +13,8 @@ photo = PhotoImage(file = "images/bg.png")
 bglabel = Label(window, image = photo)
 bglabel.pack()
 
+v_size = 0.1
+
 def windowquit():
     mySound.stop()
     window.destroy()
@@ -40,6 +42,15 @@ def gamehelp():
         Bb3 = Button(newwindow3, text = "←", command = newwindow3.destroy, bg = "yellow")
         Bb3.pack()
         Bb3.place(x=0,y=0)
+    def soundup():
+        global v_size
+        mySound.set_volume(v_size)
+        v_size += 0.02
+
+    def sounddown():
+        global v_size
+        mySound.set_volume(v_size)
+        v_size -= 0.02
         
     newwindow5 = Toplevel()
     newwindow5.geometry('500x630')
@@ -54,6 +65,14 @@ def gamehelp():
     Pdb = Button(newwindow5, text = "제작자\n정보", command = producer, bg = "Steel Blue", font = ("Arial",9,"bold"))
     Pdb.pack()
     Pdb.place(x=185,y=180)
+
+    Vub = Button(newwindow5, text = "업", command = soundup, bg = "violet", font = ("Arial",9,"bold"))
+    Vub.pack()
+    Vub.place(x=175,y=96)
+
+    Vdb = Button(newwindow5, text = "다운", command = sounddown, bg = "violet", font = ("Arial",9,"bold"))
+    Vdb.pack()
+    Vdb.place(x=175,y=128)
 
     newwindow5.mainloop()
     
@@ -81,7 +100,7 @@ Sob.place(x=0,y=0)
 window.protocol('WM_DELETE_WINDOW', window)
 
 mySound = pygame.mixer.Sound('music/basic.mp3')
-mySound.set_volume(0.1)
+mySound.set_volume(v_size)
 mySound.play(-1)
 
 window.mainloop()
