@@ -16,6 +16,28 @@ bglabel.pack()
 v_size = 0.1
 
 def maingame():
+    def OnePbutton():
+        newwindow2.title("-1인용 게임-")
+        Fb['text'] = "2인용 게임보기"
+        Fb['command'] = TwoPbutton
+
+        Gb1['text'] = "퀴즈맞추기"
+        Gb1['image'] = photo4
+        
+        Gb2['text'] = "재수강 피하기"
+        Gb2['image'] = photo5
+  
+    def TwoPbutton():
+        newwindow2.title("-2인용 게임-")
+        Fb['text']= "1인용 게임보기"
+        Fb['command'] = OnePbutton
+        
+        Gb1['text'] = "오목"
+        Gb1['image'] = photo6
+        
+        Gb2['text'] = "체스"
+        Gb2['image'] = photo7
+        
     photo2 = PhotoImage(file = "images/bg2.png")
 
     newwindow2 = Toplevel()
@@ -30,13 +52,28 @@ def maingame():
     Bb.pack()
     Bb.place(x=0,y=0)
 
-    Gb1 = Button(newwindow2, text = "퀴즈 맞추기", bg = "blue", fg = "white", width =10, height=10)
-    Gb1.pack()
-    Gb1.place(x=200,y=200)
+    photo4 = PhotoImage(file="images/button2.png")
 
-    Gb2 = Button(newwindow2, text = "재수강 피하기", bg = "blue", fg = "white", width =10, height=10)
+    Gb1 = Button(newwindow2, text = "퀴즈 맞추기",borderwidth=0 , image=photo4)
+    Gb1.pack()
+    Gb1.place(x=100,y=200)
+
+    photo5 = PhotoImage(file="images/button3.png")
+
+    Gb2 = Button(newwindow2, text = "재수강 피하기", borderwidth=0, image=photo5)
     Gb2.pack()
     Gb2.place(x=400,y=200)
+
+    Bb = Button(newwindow2, text = "←", command = newwindow2.destroy, bg = "yellow")
+    Bb.pack()
+    Bb.place(x=0,y=0)
+
+    Fb = Button(newwindow2, text = "2인용 게임보기", command = TwoPbutton, bg = "Medium Sea Green")
+    Fb.pack()
+    Fb.place(x=310,y=0)
+
+    photo6 = PhotoImage(file="images/button4.png")
+    photo7 = PhotoImage(file="images/button5.png")
 
     newwindow2.protocol('WM_DELETE_WINDOW', newwindow2)
     newwindow2.mainloop()
@@ -165,6 +202,7 @@ CC BY-SA 4.0 | https://creativecommons.org/licenses/by-sa/4.0/
 
     newwindow5.protocol('WM_DELETE_WINDOW', newwindow5)
     newwindow5.mainloop()
+    
 def maingame2():
         newwindow7 = Toplevel()
         newwindow7.geometry('215x20')
