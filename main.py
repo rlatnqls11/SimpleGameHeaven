@@ -2,27 +2,42 @@ import pygame
 import os
 from tkinter import *
 
+# pygame 초기화
 pygame.init()
 
+# window 창 생성
 window = Tk()
 window.title("심플 게임천국(Simple GameHeaven)")
 window.geometry('710x400')
+
+# 전체화면 비활성화
 window.resizable(width=False, height=False)
 
+# 이미지 삽입
 photo = PhotoImage(file = "images/bg.png")
 bglabel = Label(window, image = photo)
 bglabel.pack()
 
+# 음악 변수
 v_size = 0.1
 
 def maingame():
     def OnePbutton():
         newwindow2.title("-1인용 게임-")
+        
+        #Fb의 텍스트를 "2인용 게임보기"로 변경
         Fb['text'] = "2인용 게임보기"
+        
+        #Fb의 커맨드를 TwoPbutton으로 변경
         Fb['command'] = TwoPbutton
-
+        
         Gb1['text'] = "퀴즈맞추기"
         Gb1['command'] = quizgame
+<<<<<<< HEAD
+=======
+        
+        #Gb1의 이미지를 photo4로 변경
+>>>>>>> ksb_hotfix
         Gb1['image'] = photo4
         
         Gb2['text'] = "재수강 피하기"
@@ -51,6 +66,10 @@ def maingame():
         newwindow8.protocol('WM_DELETE_WINDOW', newwindow8)
 
         def game1():
+<<<<<<< HEAD
+=======
+            # Quizgame.py 실행
+>>>>>>> ksb_hotfix
             os.system("Quizgame.py")
 
         def help2():
@@ -229,10 +248,14 @@ def maingame():
     newwindow2.mainloop()
     
 def windowquit():
+    #노래 멈춤
     mySound.stop()
+
+    #윈도우 창 꺼짐
     window.destroy()
 
 def gamehelp():
+<<<<<<< HEAD
     def soundstop():
         mySound.stop()
         Sb['text'] = "노래 켜기"
@@ -243,6 +266,8 @@ def gamehelp():
         Sb['text'] = "노래 끄기"
         Sb['command'] = soundstop
 
+=======
+>>>>>>> ksb_hotfix
     def Mcopyright():
         newwindow6 = Toplevel()
         newwindow6.geometry('500x80')
@@ -263,16 +288,12 @@ CC BY-SA 4.0 | https://creativecommons.org/licenses/by-sa/4.0/
         newwindow6.protocol('WM_DELETE_WINDOW', newwindow6)
         newwindow6.mainloop()
 
-    def soundup():
-        global v_size
-        mySound.set_volume(v_size)
-        v_size += 0.02
+    def producer():
+        newwindow3 = Toplevel()
+        newwindow3.geometry('250x70')
+        newwindow3.title("제작자")
 
-    def sounddown():
-        global v_size
-        mySound.set_volume(v_size)
-        v_size -= 0.02
-
+<<<<<<< HEAD
     def producer():
         newwindow3 = Toplevel()
         newwindow3.geometry('250x70')
@@ -282,6 +303,12 @@ CC BY-SA 4.0 | https://creativecommons.org/licenses/by-sa/4.0/
         bg3label = Label(newwindow3, text = "대구대학교 정보통신대학\n컴퓨터정보공학부 컴퓨터공학전공\n 21727594 김수빈\n 21727756 김동현");
         bg3label.pack()
 
+=======
+        newwindow3.protocol('WM_DELETE_WINDOW', newwindow3)
+        bg3label = Label(newwindow3, text = "대구대학교 정보통신대학\n컴퓨터정보공학부 컴퓨터공학전공\n 21727594 김수빈\n 21727756 김동현");
+        bg3label.pack()
+
+>>>>>>> ksb_hotfix
         Bb3 = Button(newwindow3, text = "←", command = newwindow3.destroy, bg = "yellow")
         Bb3.pack()
         Bb3.place(x=0,y=0)
@@ -298,6 +325,8 @@ CC BY-SA 4.0 | https://creativecommons.org/licenses/by-sa/4.0/
         e.insert(0, "닉네임을 적어주세요")
 
         def click():
+            
+            # 입력받은 값 출력
             hello = "당신의 닉네임 : " + str(e.get())[0:]
             label8 = Label(newwindow4, text=hello)
             label8.pack()
@@ -311,6 +340,26 @@ CC BY-SA 4.0 | https://creativecommons.org/licenses/by-sa/4.0/
 
         newwindow4.protocol('WM_DELETE_WINDOW', newwindow4)
         newwindow4.mainloop()
+
+    def soundstop():
+        mySound.stop()
+        Sb['text'] = "노래 켜기"
+        Sb['command'] = soundstart
+
+    def soundstart():
+        mySound.play(-1)
+        Sb['text'] = "노래 끄기"
+        Sb['command'] = soundstop
+
+    def soundup():
+        global v_size
+        mySound.set_volume(v_size)
+        v_size += 0.02
+
+    def sounddown():
+        global v_size
+        mySound.set_volume(v_size)
+        v_size -= 0.02
         
     newwindow5 = Toplevel()
     newwindow5.geometry('500x630')
@@ -322,13 +371,13 @@ CC BY-SA 4.0 | https://creativecommons.org/licenses/by-sa/4.0/
     labels = Label(newwindow5, image = photo3)
     labels.pack()
 
-    Sb = Button(newwindow5, text = "노래 끄기", command = soundstop, bg = "Navajo White", font = ("Arial",9,"bold"))
-    Sb.pack()
-    Sb.place(x=170,y=38)
-
     Pdb = Button(newwindow5, text = "제작자\n정보", command = producer, bg = "Steel Blue", font = ("Arial",9,"bold"))
     Pdb.pack()
     Pdb.place(x=185,y=180)
+
+    Sb = Button(newwindow5, text = "노래 끄기", command = soundstop, bg = "Navajo White", font = ("Arial",9,"bold"))
+    Sb.pack()
+    Sb.place(x=170,y=38)
 
     Vub = Button(newwindow5, text = "업", command = soundup, bg = "violet", font = ("Arial",9,"bold"))
     Vub.pack()
@@ -387,6 +436,7 @@ Eb = Button(window, text = "게임 나가기" ,fg = "white", bg = "red", command
 Eb.pack()
 Eb.place(x=340,y=270)
 
+# 윈도우 x버튼 비활성화
 window.protocol('WM_DELETE_WINDOW', window)
 
 mySound = pygame.mixer.Sound('music/basic.mp3')
