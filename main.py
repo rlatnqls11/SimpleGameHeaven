@@ -33,11 +33,8 @@ def maingame():
         
         Gb1['text'] = "퀴즈맞추기"
         Gb1['command'] = quizgame
-<<<<<<< HEAD
-=======
         
         #Gb1의 이미지를 photo4로 변경
->>>>>>> ksb_hotfix
         Gb1['image'] = photo4
         
         Gb2['text'] = "재수강 피하기"
@@ -66,10 +63,8 @@ def maingame():
         newwindow8.protocol('WM_DELETE_WINDOW', newwindow8)
 
         def game1():
-<<<<<<< HEAD
-=======
+
             # Quizgame.py 실행
->>>>>>> ksb_hotfix
             os.system("Quizgame.py")
 
         def help2():
@@ -255,7 +250,7 @@ def windowquit():
     window.destroy()
 
 def gamehelp():
-<<<<<<< HEAD
+
     def soundstop():
         mySound.stop()
         Sb['text'] = "노래 켜기"
@@ -266,8 +261,6 @@ def gamehelp():
         Sb['text'] = "노래 끄기"
         Sb['command'] = soundstop
 
-=======
->>>>>>> ksb_hotfix
     def Mcopyright():
         newwindow6 = Toplevel()
         newwindow6.geometry('500x80')
@@ -293,7 +286,7 @@ CC BY-SA 4.0 | https://creativecommons.org/licenses/by-sa/4.0/
         newwindow3.geometry('250x70')
         newwindow3.title("제작자")
 
-<<<<<<< HEAD
+
     def producer():
         newwindow3 = Toplevel()
         newwindow3.geometry('250x70')
@@ -303,12 +296,12 @@ CC BY-SA 4.0 | https://creativecommons.org/licenses/by-sa/4.0/
         bg3label = Label(newwindow3, text = "대구대학교 정보통신대학\n컴퓨터정보공학부 컴퓨터공학전공\n 21727594 김수빈\n 21727756 김동현");
         bg3label.pack()
 
-=======
+
         newwindow3.protocol('WM_DELETE_WINDOW', newwindow3)
         bg3label = Label(newwindow3, text = "대구대학교 정보통신대학\n컴퓨터정보공학부 컴퓨터공학전공\n 21727594 김수빈\n 21727756 김동현");
         bg3label.pack()
 
->>>>>>> ksb_hotfix
+
         Bb3 = Button(newwindow3, text = "←", command = newwindow3.destroy, bg = "yellow")
         Bb3.pack()
         Bb3.place(x=0,y=0)
